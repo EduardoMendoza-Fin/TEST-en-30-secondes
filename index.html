@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nordéa Conseil — Diagnostic Assurance Hypothécaire</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Montserrat', sans-serif; }
+    .fade-enter { opacity: 0; transform: translateY(10px); }
+    .fade-enter-active { opacity: 1; transform: translateY(0); transition: all 0.4s ease; }
+  </style>
+</head>
+<body class="bg-[#FAF7F2] text-[#1C355E]">
+  <div class="min-h-screen">
+    <!-- Hero -->
+    <header class="px-6 py-4 md:px-12 lg:px-20">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="w-12 h-12 rounded-full bg-white shadow-inner flex items-center justify-center text-[#1C355E] font-semibold">NC</div>
+          <div>
+            <p class="font-semibold tracking-wide">Nordéa Conseil</p>
+            <p class="text-xs text-[#1C355E]/70">Conseillers financiers</p>
+          </div>
+        </div>
+        <a href="https://calendly.com/" target="_blank" class="hidden md:inline-flex items-center rounded-full border border-[#1C355E]/20 px-4 py-2 text-sm hover:bg-white transition">Contact</a>
+      </div>
+    </header>
+    <main>
+      <section class="px-6 pb-16 md:px-12 lg:px-20">
+        <div class="rounded-3xl bg-white/70 shadow-xl p-8 lg:p-16 flex flex-col md:flex-row gap-10 items-center">
+          <div class="md:w-3/5 space-y-6">
+            <p class="uppercase tracking-[0.3em] text-xs text-[#1C355E]/70">Diagnostic confidentiel</p>
+            <h1 class="text-3xl md:text-5xl font-semibold leading-tight">Votre assurance hypothécaire protège-t-elle votre famille ou votre banque?</h1>
+            <p class="text-lg text-[#1C355E]/80">Faites le test en 30 secondes et découvrez votre niveau de protection. Nordéa Conseil vous accompagne avec transparence et pédagogie.</p>
+            <button id="cta-start" class="inline-flex items-center justify-center rounded-full bg-[#C62828] text-white px-8 py-3 font-semibold shadow-lg hover:shadow-xl transition">Commencer le test</button>
+          </div>
+          <div class="md:w-2/5 bg-[#1C355E] text-white rounded-3xl p-6 space-y-4">
+            <p class="text-sm uppercase tracking-wide">Pourquoi Nordéa Conseil ?</p>
+            <ul class="space-y-3 text-sm">
+              <li class="flex items-start space-x-3"><span class="text-[#C62828]">•</span><span>Diagnostic indépendant de vos produits bancaires.</span></li>
+              <li class="flex items-start space-x-3"><span class="text-[#C62828]">•</span><span>Accès à des solutions flexibles et transférables.</span></li>
+              <li class="flex items-start space-x-3"><span class="text-[#C62828]">•</span><span>Accompagnement premium et humain.</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quiz Section -->
+      <section id="quiz" class="px-4 pb-20 md:px-12 lg:px-20">
+        <div class="max-w-3xl mx-auto bg-white rounded-3xl shadow-2xl p-6 md:p-10 space-y-6">
+          <div>
+            <p class="text-sm uppercase tracking-[0.3em] text-[#1C355E]/70">Nordéa Conseil</p>
+            <h2 class="text-2xl md:text-3xl font-semibold">Test d’évaluation — Assurance Hypothécaire</h2>
+            <p class="text-[#1C355E]/70">Répondez aux questions pour découvrir votre niveau de protection.</p>
+          </div>
+
+          <!-- Progress -->
+          <div class="space-y-2">
+            <div class="flex justify-between text-xs font-semibold">
+              <span>Progression</span>
+              <span id="progress-label">0%</span>
+            </div>
+            <div class="h-2 rounded-full bg-[#1C355E]/10">
+              <div id="progress-bar" class="h-full rounded-full bg-[#C62828] transition-all duration-300" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <!-- Question Card -->
+          <div id="question-card" class="space-y-5"></div>
+          <button id="next-button" class="w-full rounded-2xl bg-[#C62828] text-white py-3 font-semibold disabled:opacity-40 disabled:cursor-not-allowed transition">Question suivante</button>
+
+          <!-- Lead capture -->
+          <div id="lead-form" class="hidden space-y-6">
+            <div class="text-center space-y-2">
+              <h3 class="text-2xl font-semibold">Votre évaluation est prête</h3>
+              <p class="text-[#1C355E]/70">Entrez vos informations pour voir vos résultats.</p>
+            </div>
+            <form id="capture-form" class="space-y-4">
+              <div class="grid gap-4 md:grid-cols-2">
+                <div>
+                  <label class="text-sm font-medium">Prénom *</label>
+                  <input type="text" name="firstName" required class="mt-2 w-full rounded-2xl border border-[#1C355E]/20 px-4 py-3 focus:border-[#1C355E] focus:outline-none" placeholder="Julie" />
+                </div>
+                <div>
+                  <label class="text-sm font-medium">Nom *</label>
+                  <input type="text" name="lastName" required class="mt-2 w-full rounded-2xl border border-[#1C355E]/20 px-4 py-3 focus:border-[#1C355E] focus:outline-none" placeholder="Lambert" />
+                </div>
+              </div>
+              <div class="grid gap-4 md:grid-cols-2">
+                <div>
+                  <label class="text-sm font-medium">Email *</label>
+                  <input type="email" name="email" required class="mt-2 w-full rounded-2xl border border-[#1C355E]/20 px-4 py-3 focus:border-[#1C355E] focus:outline-none" placeholder="vous@mail.com" />
+                </div>
+                <div>
+                  <label class="text-sm font-medium">Téléphone</label>
+                  <input type="tel" name="phone" class="mt-2 w-full rounded-2xl border border-[#1C355E]/20 px-4 py-3 focus:border-[#1C355E] focus:outline-none" placeholder="Optional" />
+                </div>
+              </div>
+              <button type="submit" class="w-full rounded-2xl bg-[#C62828] text-white py-3 font-semibold">Voir mon résultat</button>
+            </form>
+          </div>
+
+          <!-- Result -->
+          <div id="result-card" class="hidden text-center space-y-4">
+            <p class="text-sm uppercase tracking-[0.3em] text-[#1C355E]/60">Analyse confidentielle</p>
+            <h3 id="result-title" class="text-3xl font-semibold"></h3>
+            <p id="result-description" class="text-[#1C355E]/70"></p>
+            <a href="https://calendly.com/" target="_blank" class="inline-flex items-center justify-center rounded-full bg-[#1C355E] text-white px-6 py-3 font-semibold">Réserver mon Diagnostic Hypothécaire 2026</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-[#1C355E]/10 py-8 text-center text-sm text-[#1C355E]/70 px-6">
+      <p>© 2025 Nordéa Conseil — Tous droits réservés</p>
+      <p class="text-xs mt-2">Ce diagnostic a une vocation éducative et ne remplace pas l’analyse personnalisée de votre situation financière.</p>
+    </footer>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        text: "Qui est le bénéficiaire de votre assurance hypothécaire ?",
+        options: ["La banque", "Vos proches", "Je ne sais pas"],
+      },
+      {
+        text: "Votre couverture diminue-t-elle au même rythme que votre hypothèque?",
+        options: ["Oui", "Non", "Je ne sais pas"],
+      },
+      {
+        text: "Avez-vous déjà passé une analyse médicale complète?",
+        options: ["Oui", "Non"],
+      },
+      {
+        text: "Votre assurance vous suit-elle si vous changez de banque?",
+        options: ["Oui", "Non", "Je ne sais pas"],
+      },
+      {
+        text: "Votre prime reste-t-elle fixe pendant toute la durée?",
+        options: ["Oui", "Non", "Je ne sais pas"],
+      },
+      {
+        text: "Votre banque pourrait-elle refuser le paiement selon votre état de santé?",
+        options: ["Oui", "Non", "Je ne sais pas"],
+      },
+    ];
+
+    const state = {
+      current: 0,
+      answers: [],
+    };
+
+    const questionCard = document.getElementById('question-card');
+    const nextButton = document.getElementById('next-button');
+    const progressBar = document.getElementById('progress-bar');
+    const progressLabel = document.getElementById('progress-label');
+    const leadForm = document.getElementById('lead-form');
+    const captureForm = document.getElementById('capture-form');
+    const resultCard = document.getElementById('result-card');
+    const resultTitle = document.getElementById('result-title');
+    const resultDescription = document.getElementById('result-description');
+
+    function updateProgress() {
+      const percentage = Math.round((state.current / questions.length) * 100);
+      progressBar.style.width = `${percentage}%`;
+      progressLabel.textContent = `${percentage}%`;
+    }
+
+    function renderQuestion() {
+      updateProgress();
+      const question = questions[state.current];
+      if (!question) {
+        questionCard.classList.add('hidden');
+        nextButton.classList.add('hidden');
+        leadForm.classList.remove('hidden');
+        leadForm.classList.add('fade-enter-active');
+        progressLabel.textContent = '100%';
+        progressBar.style.width = '100%';
+        return;
+      }
+      nextButton.disabled = true;
+      questionCard.innerHTML = `
+        <div class="space-y-6 fade-enter fade-enter-active">
+          <div class="flex items-center justify-between">
+            <p class="text-lg font-semibold">Question ${state.current + 1} sur ${questions.length}</p>
+            <span class="text-sm text-[#1C355E]/70">Réponse obligatoire</span>
+          </div>
+          <p class="text-xl font-medium">${question.text}</p>
+          <div class="space-y-3">
+            ${question.options.map((option, index) => `
+              <label class="flex items-center space-x-3 rounded-2xl border border-[#1C355E]/15 px-4 py-3 cursor-pointer hover:border-[#1C355E]/40 transition">
+                <input type="radio" name="question" value="${option}" class="text-[#C62828] focus:ring-[#C62828]" />
+                <span>${option}</span>
+              </label>
+            `).join('')}
+          </div>
+        </div>
+      `;
+
+      questionCard.querySelectorAll('input[type="radio"]').forEach((radio) => {
+        radio.addEventListener('change', () => {
+          nextButton.disabled = false;
+        });
+      });
+    }
+
+    nextButton.addEventListener('click', () => {
+      const selected = questionCard.querySelector('input[type="radio"]:checked');
+      if (!selected) return;
+      state.answers[state.current] = selected.value;
+      state.current += 1;
+      renderQuestion();
+    });
+
+    captureForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!captureForm.checkValidity()) {
+        captureForm.reportValidity();
+        return;
+      }
+      const riskScore = state.answers.reduce((score, answer) => {
+        if (answer === 'Je ne sais pas' || answer === 'La banque') {
+          return score + 1;
+        }
+        return score;
+      }, 0);
+
+      let title = 'Protection élevée';
+      let description = "Votre couverture semble alignée avec vos besoins et protège votre famille. Nordéa Conseil peut tout de même vous proposer des optimisations spécifiques.";
+
+      if (riskScore >= 4) {
+        title = 'Risque élevé : votre assurance protège probablement la banque';
+        description = "Plusieurs réponses indiquent que votre protection priorise la banque. Il est urgent d’obtenir un diagnostic détaillé pour reprendre le contrôle.";
+      } else if (riskScore >= 2) {
+        title = 'Protection incertaine';
+        description = "Certaines zones restent floues ou non maîtrisées. Un échange avec un conseiller Nordéa vous donnera une vision claire et des solutions flexibles.";
+      }
+
+      leadForm.classList.add('hidden');
+      resultCard.classList.remove('hidden');
+      resultTitle.textContent = title;
+      resultDescription.textContent = description;
+    });
+
+    document.getElementById('cta-start').addEventListener('click', () => {
+      document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    renderQuestion();
+  </script>
+</body>
+</html>
