@@ -1,3 +1,33 @@
+/* ---------------------------
+   🔥 FONCTION AIRTABLE
+----------------------------- */
+async function sendLeadToAirtable(firstName, lastName, email, phone, riskScore, resultLabel) {
+  const response = await fetch("/api/airtable", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      firstName,
+      lastName,
+      email,
+      phone,
+      score: riskScore,
+      result: resultLabel
+    })
+  });
+
+  if (!response.ok) {
+    console.error("Erreur lors de l'envoi du lead:", await response.text());
+  } else {
+    console.log("Lead envoyé via l'API Vercel !");
+  }
+}
+
+/* ---------------------------
+   ✔️ TON CODE D'ORIGINE
+----------------------------- */
+
 const questions = [
   {
     text: 'Qui est le bénéficiaire de votre assurance hypothécaire ?',
@@ -131,11 +161,25 @@ captureForm.addEventListener('submit', (event) => {
       "Certaines zones restent floues ou non maîtrisées. Un échange avec un conseiller Nordéa vous donnera une vision claire et des solutions flexibles.";
   }
 
+  /* ---------------------------
+     🚀 ENVOI AIRTABLE ICI
+  ----------------------------- */
+  const firstName = captureForm.firstName.value;
+  const lastName = captureForm.lastName.value;
+  const email = captureForm.email.value;
+  const phone = captureForm.phone.value;
+
+  sendLeadToAirtable(firstName, lastName, email, phone, riskScore, title);
+
+  /* ---------------------------
+     🔥 AFFICHAGE RÉSULTAT
+  ----------------------------- */
   leadForm.classList.add('hidden');
   resultCard.classList.remove('hidden');
   resultTitle.textContent = title;
   resultDescription.textContent = description;
 });
+
 
 const ctaStart = document.getElementById('cta-start');
 if (ctaStart) {
