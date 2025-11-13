@@ -1,0 +1,61 @@
+:root {
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.feature-card {
+  border-radius: 1.5rem;
+  background: #faf7f2;
+  border: 1px solid rgba(28, 53, 94, 0.08);
+  padding: 1rem 1.25rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.benefit-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: #c62828;
+  display: inline-block;
+}
+
+.input {
+  margin-top: 0.5rem;
+  width: 100%;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(28, 53, 94, 0.2);
+  padding: 0.75rem 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input:focus {
+  border-color: #1c355e;
+  box-shadow: 0 0 0 3px rgba(28, 53, 94, 0.1);
+  outline: none;
+}
+
+.fade-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 640px) {
+  .feature-card {
+    text-align: center;
+  }
+}

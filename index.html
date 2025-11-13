@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nordéa Conseil — Diagnostic Assurance Hypothécaire</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-[#FAF7F2] text-[#1C355E]">
+    <div class="min-h-screen flex flex-col">
+      <header class="px-6 py-4 md:px-12 lg:px-20">
+        <nav class="flex items-center justify-between rounded-2xl bg-white/70 backdrop-blur px-6 py-3 shadow-md">
+          <div class="flex items-center space-x-3">
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-[#1C355E] text-white text-xl font-semibold">NC</div>
+            <div>
+              <p class="font-semibold tracking-wide">Nordéa Conseil</p>
+              <p class="text-xs text-[#1C355E]/70">Diagnostic hypothécaire premium</p>
+            </div>
+          </div>
+          <div class="hidden md:flex items-center space-x-3 text-sm font-medium">
+            <span class="text-[#1C355E]/70">+33 1 84 88 67 00</span>
+            <a href="https://calendly.com/" target="_blank" class="rounded-full border border-[#1C355E]/20 px-4 py-2 transition hover:bg-white">Contact</a>
+          </div>
+        </nav>
+      </header>
+
+      <main class="flex-1">
+        <section class="px-6 pb-16 md:px-12 lg:px-20">
+          <div class="grid gap-10 rounded-[32px] bg-white/80 p-8 shadow-xl shadow-[#1C355E]/5 lg:grid-cols-2 lg:p-14">
+            <div class="space-y-6">
+              <p class="uppercase tracking-[0.3em] text-xs text-[#1C355E]/70">Protection familiale</p>
+              <h1 class="text-3xl font-semibold leading-tight md:text-5xl">Votre assurance hypothécaire protège-t-elle votre famille ou votre banque?</h1>
+              <p class="text-lg text-[#1C355E]/80">Faites le test en 30 secondes et découvrez votre niveau de protection. Nordéa Conseil vous accompagne avec pédagogie, transparence et une approche 100% indépendante.</p>
+              <div class="flex flex-wrap gap-3">
+                <button id="cta-start" class="rounded-full bg-[#C62828] px-8 py-3 font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl">Commencer le test</button>
+                <a href="#quiz" class="rounded-full border border-[#1C355E]/20 px-8 py-3 font-semibold text-[#1C355E] transition hover:bg-white">En savoir plus</a>
+              </div>
+              <div class="grid gap-4 sm:grid-cols-3">
+                <div class="feature-card">
+                  <p class="text-3xl font-semibold">15+</p>
+                  <p class="text-sm text-[#1C355E]/70">Banques auditées</p>
+                </div>
+                <div class="feature-card">
+                  <p class="text-3xl font-semibold">48h</p>
+                  <p class="text-sm text-[#1C355E]/70">Diagnostic rapide</p>
+                </div>
+                <div class="feature-card">
+                  <p class="text-3xl font-semibold">100%</p>
+                  <p class="text-sm text-[#1C355E]/70">Analyse indépendante</p>
+                </div>
+              </div>
+            </div>
+            <div class="space-y-6 rounded-[28px] bg-[#1C355E] p-8 text-white">
+              <p class="text-sm uppercase tracking-[0.3em] text-white/70">Pourquoi Nordéa Conseil ?</p>
+              <div class="space-y-4 text-sm leading-relaxed">
+                <div class="benefit-item">
+                  <span class="benefit-dot"></span>
+                  Diagnostic indépendant de vos produits bancaires.
+                </div>
+                <div class="benefit-item">
+                  <span class="benefit-dot"></span>
+                  Solutions flexibles et transférables entre institutions.
+                </div>
+                <div class="benefit-item">
+                  <span class="benefit-dot"></span>
+                  Accompagnement premium, humain et confidentiel.
+                </div>
+                <div class="benefit-item">
+                  <span class="benefit-dot"></span>
+                  Stratégies pédagogiques pour sécuriser votre famille.
+                </div>
+              </div>
+              <div class="rounded-3xl bg-white/10 p-6 text-sm leading-relaxed">
+                « L’assurance hypothécaire doit protéger votre famille avant tout. Nous auditons votre contrat pour révéler ses forces et ses angles morts. »
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="quiz" class="px-4 pb-20 md:px-12 lg:px-20">
+          <div class="mx-auto max-w-4xl space-y-6 rounded-[32px] bg-white p-6 shadow-2xl shadow-[#1C355E]/10 md:p-10">
+            <div class="space-y-2 text-center">
+              <p class="text-xs uppercase tracking-[0.3em] text-[#1C355E]/60">Nordéa Conseil</p>
+              <h2 class="text-3xl font-semibold">Test d’évaluation — Assurance Hypothécaire</h2>
+              <p class="text-[#1C355E]/70">Répondez question par question pour découvrir si votre contrat protège réellement vos proches.</p>
+            </div>
+
+            <div class="space-y-2">
+              <div class="flex justify-between text-xs font-semibold">
+                <span>Progression</span>
+                <span id="progress-label">0%</span>
+              </div>
+              <div class="h-2 rounded-full bg-[#1C355E]/10">
+                <div id="progress-bar" class="h-full rounded-full bg-[#C62828] transition-all duration-300" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <div id="question-card" class="space-y-5"></div>
+
+            <button id="next-button" class="w-full rounded-2xl bg-[#C62828] py-3 font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-40">Question suivante</button>
+
+            <div id="lead-form" class="hidden space-y-6">
+              <div class="text-center space-y-2">
+                <h3 class="text-2xl font-semibold">Votre évaluation est prête</h3>
+                <p class="text-[#1C355E]/70">Entrez vos informations pour voir vos résultats.</p>
+              </div>
+              <form id="capture-form" class="space-y-4">
+                <div class="grid gap-4 md:grid-cols-2">
+                  <div>
+                    <label class="text-sm font-medium">Prénom *</label>
+                    <input type="text" name="firstName" required class="input" placeholder="Julie" />
+                  </div>
+                  <div>
+                    <label class="text-sm font-medium">Nom *</label>
+                    <input type="text" name="lastName" required class="input" placeholder="Lambert" />
+                  </div>
+                </div>
+                <div class="grid gap-4 md:grid-cols-2">
+                  <div>
+                    <label class="text-sm font-medium">Email *</label>
+                    <input type="email" name="email" required class="input" placeholder="vous@mail.com" />
+                  </div>
+                  <div>
+                    <label class="text-sm font-medium">Téléphone</label>
+                    <input type="tel" name="phone" class="input" placeholder="Facultatif" />
+                  </div>
+                </div>
+                <button type="submit" class="w-full rounded-2xl bg-[#1C355E] py-3 font-semibold text-white">Voir mon résultat</button>
+              </form>
+            </div>
+
+            <div id="result-card" class="hidden space-y-4 text-center">
+              <p class="text-xs uppercase tracking-[0.3em] text-[#1C355E]/60">Analyse confidentielle</p>
+              <h3 id="result-title" class="text-3xl font-semibold"></h3>
+              <p id="result-description" class="text-[#1C355E]/70"></p>
+              <a href="https://calendly.com/" target="_blank" class="inline-flex items-center justify-center rounded-full bg-[#1C355E] px-6 py-3 font-semibold text-white">Réserver mon Diagnostic Hypothécaire 2026</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="mt-auto border-t border-[#1C355E]/10 px-6 py-8 text-center text-sm text-[#1C355E]/70">
+        <p>© 2025 Nordéa Conseil — Tous droits réservés</p>
+        <p class="mt-2 text-xs">Ce diagnostic a une vocation éducative et ne remplace pas l’analyse personnalisée de votre situation financière.</p>
+      </footer>
+    </div>
+
+    <script defer src="script.js"></script>
+  </body>
+</html>
