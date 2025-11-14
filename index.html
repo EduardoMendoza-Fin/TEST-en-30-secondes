@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <script defer src="/_vercel/insights/script.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nordéa Conseil — Diagnostic Assurance Hypothécaire</title>
@@ -11,6 +10,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css" />
   </head>
+  
   <body class="bg-[#FAF7F2] text-[#1C355E]">
     <div class="min-h-screen flex flex-col">
       <header class="px-6 py-4 md:px-12 lg:px-20">
@@ -152,10 +152,11 @@
 
     <script defer src="script.js"></script>
     <!-- Vercel Analytics -->
-  <script>
-    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-  </script>
-  <script defer src="/_vercel/insights/script.js"></script>
-
+     <!-- Vercel Analytics -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  window.va("pageview");
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
   </body>
 </html>
